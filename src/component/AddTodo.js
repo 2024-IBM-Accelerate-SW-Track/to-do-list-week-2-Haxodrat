@@ -8,6 +8,8 @@ class AddTodo extends Component {
     this.state = {
       content: "",
       date: "",
+      firstName: "",
+      lastName: ""
     };
   }
   // The handleChange function updates the react state with the new input value provided from the user.
@@ -17,6 +19,8 @@ class AddTodo extends Component {
     this.setState({
       content: event.target.value,
       date: Date().toLocaleString("en-US"),
+      firstName: event.target.value,
+      lastName: event.target.value
     });
   };
   // The handleSubmit function collects the forms input and puts it into the react state.
@@ -30,6 +34,8 @@ class AddTodo extends Component {
       this.setState({
         content: "",
         date: "",
+        firstName: "",
+        lastName: ""
       });
     }
   };
@@ -50,6 +56,22 @@ class AddTodo extends Component {
           value={this.state.content}
           data-testid="new-item-textfield"
         />
+        <TextField
+          label="Add First Name"
+          type = "text"
+          id = "fname"
+          name = "fname"
+          onChange = {this.handleChange}
+          value = {this.state.firstName}
+        />
+        <TextField
+          label="Add Last Name"
+          type = "text"
+          id = "lname"
+          name = "lname"
+          onChange = {this.handleChange}
+          value = {this.state.lastName}
+        />
         <Button
           style={{ marginLeft: "10px" }}
           onClick={this.handleSubmit}
@@ -57,7 +79,7 @@ class AddTodo extends Component {
           color="primary"
           data-testid="new-item-button"
         >
-          Add
+          Add Task
         </Button>
       </div>
     );
